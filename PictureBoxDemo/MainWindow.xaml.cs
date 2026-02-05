@@ -13,6 +13,7 @@
 // </summary>
 //-----------------------------------------------------------------------
 
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
@@ -31,7 +32,8 @@ namespace PictureBoxDemo
             this.InitializeComponent();
             WeakEventManager<Window, RoutedEventArgs>.AddHandler(this, "Loaded", this.OnLoaded);
 
-            this.WindowTitel = "Minimal WPF Template";
+            this.WindowTitel = "PictureBox WPF Demo";
+
             this.DataContext = this;
         }
 
@@ -50,6 +52,14 @@ namespace PictureBoxDemo
             }
         }
 
+        public ObservableCollection<byte[]> Pictures { get; } = new();
+
+        private byte[] _selected;
+        public byte[] SelectedPicture
+        {
+            get => _selected;
+            set { _selected = value; OnPropertyChanged(); }
+        }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
