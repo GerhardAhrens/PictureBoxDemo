@@ -159,6 +159,7 @@
             var image = Clipboard.GetImage();
             ItemsSource.Add(ImageToBytes(image));
             SelectedPicture = ItemsSource.Last();
+            this.pictureBox.Source = BytesToImage(SelectedPicture);
         }
 
         private void Copy()
@@ -171,7 +172,7 @@
             Clipboard.SetImage(BytesToImage(SelectedPicture));
         }
 
-        private static ImageSource Base64ToImageSource(string base64String)
+        private static BitmapImage Base64ToImageSource(string base64String)
         {
             BitmapImage bi = new BitmapImage();
 

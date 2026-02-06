@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:PictureBoxDemo"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="400"
+    d:DesignHeight="350"
     d:DesignWidth="400"
     mc:Ignorable="d">
     <UserControl.Resources>
@@ -52,13 +52,16 @@
             VerticalAlignment="Stretch"
             BorderBrush="Gray"
             BorderThickness="1">
-            <Image
-                x:Name="pictureBox"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                Source="{Binding SelectedPicture, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource ByteArrayToImageConverter}}"
-                Stretch="Uniform"
-                StretchDirection="Both" />
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Image
+                    x:Name="pictureBox"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+                    Source="{Binding SelectedPicture, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource ByteArrayToImageConverter}}"
+                    Stretch="Uniform"
+                    StretchDirection="Both" />
+            </ScrollViewer>
         </Border>
 
     </Grid>
