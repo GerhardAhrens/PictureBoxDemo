@@ -30,18 +30,35 @@
                 x:Name="BtnMoveDown"
                 Content="▼"
                 Tag="Down" />
-            <Button x:Name="BtnDelete" Content="🗑" Tag="Delete"/>
-            <Button x:Name="BtnPaste" Content="📋+" Tag="Paste"/>
-            <Button x:Name="BtnCopy" Content="📋" Tag="Copy"/>
+            <Button
+                x:Name="BtnDelete"
+                Content="🗑"
+                Tag="Delete" />
+            <Button
+                x:Name="BtnPaste"
+                Content="📋+"
+                Tag="Paste" />
+            <Button
+                x:Name="BtnCopy"
+                Content="📋"
+                Tag="Copy" />
 
         </StackPanel>
 
         <!--  Image  -->
         <Border
             Grid.Column="1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
             BorderBrush="Gray"
             BorderThickness="1">
-            <Image Source="{Binding SelectedPicture, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource ByteArrayToImageConverter}}" Stretch="Uniform" />
+            <Image
+                x:Name="pictureBox"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Source="{Binding SelectedPicture, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource ByteArrayToImageConverter}}"
+                Stretch="Uniform"
+                StretchDirection="Both" />
         </Border>
 
     </Grid>

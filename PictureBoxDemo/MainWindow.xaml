@@ -18,13 +18,11 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="727*" />
-            <ColumnDefinition Width="73*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
         <local:PictureBox
-            Width="700"
-            Height="400"
+            x:Name="pictureBox"
             ItemsSource="{Binding Path=Pictures}"
             SelectedPicture="{Binding Path=SelectedPicture, Mode=TwoWay}" />
 
