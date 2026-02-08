@@ -11,42 +11,103 @@
     <UserControl.Resources>
         <local:ByteArrayToImageConverter x:Key="ByteArrayToImageConverter" />
 
+        <DrawingImage x:Key="IconMoveUp">
+            <DrawingImage.Drawing>
+                <GeometryDrawing Brush="Blue" Geometry="M15,20H9V12H4.16L12,4.16L19.84,12H15V20Z" />
+            </DrawingImage.Drawing>
+        </DrawingImage>
+
+        <DrawingImage x:Key="IconMoveDown">
+            <DrawingImage.Drawing>
+                <GeometryDrawing Brush="Blue" Geometry="M9,4H15V12H19.84L12,19.84L4.16,12H9V4Z" />
+            </DrawingImage.Drawing>
+        </DrawingImage>
+
+        <DrawingImage x:Key="IconDelete">
+            <DrawingImage.Drawing>
+                <GeometryDrawing Brush="Red" Geometry="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" />
+            </DrawingImage.Drawing>
+        </DrawingImage>
+
+        <DrawingImage x:Key="IconPaste">
+            <DrawingImage.Drawing>
+                <GeometryDrawing Brush="Blue" Geometry="M19,20H5V4H7V7H17V4H19M12,2A1,1 0 0,1 13,3A1,1 0 0,1 12,4A1,1 0 0,1 11,3A1,1 0 0,1 12,2M19,2H14.82C14.4,0.84 13.3,0 12,0C10.7,0 9.6,0.84 9.18,2H5A2,2 0 0,0 3,4V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V4A2,2 0 0,0 19,2Z" />
+            </DrawingImage.Drawing>
+        </DrawingImage>
+
+        <DrawingImage x:Key="IconCopy">
+            <DrawingImage.Drawing>
+                <GeometryDrawing Brush="Blue" Geometry="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" />
+            </DrawingImage.Drawing>
+        </DrawingImage>
     </UserControl.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <!--  Buttons  -->
-        <StackPanel Grid.Column="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
+        <!--  Buttons  -->
+        <StackPanel Grid.Row="0" Grid.Column="0">
             <Button
                 x:Name="BtnMoveUp"
-                Content="▲"
-                Tag="Up" />
+                Width="30"
+                Height="30"
+                Margin="0,0,0,3"
+                Background="Transparent"
+                Tag="Up">
+                <Image Source="{StaticResource ResourceKey=IconMoveUp}" Stretch="None" />
+            </Button>
+
             <Button
                 x:Name="BtnMoveDown"
-                Content="▼"
-                Tag="Down" />
+                Width="30"
+                Height="30"
+                Margin="0,0,0,3"
+                Background="Transparent"
+                Tag="Down">
+                <Image Source="{StaticResource ResourceKey=IconMoveDown}" Stretch="None" />
+            </Button>
+
             <Button
                 x:Name="BtnDelete"
-                Content="🗑"
-                Tag="Delete" />
+                Width="30"
+                Height="30"
+                Margin="0,0,0,3"
+                Background="Transparent"
+                Tag="Delete">
+                <Image Source="{StaticResource ResourceKey=IconDelete}" Stretch="None" />
+            </Button>
+
             <Button
                 x:Name="BtnPaste"
-                Content="📋+"
-                Tag="Paste" />
+                Width="30"
+                Height="30"
+                Margin="0,0,0,3"
+                Background="Transparent"
+                Tag="Paste">
+                <Image Source="{StaticResource ResourceKey=IconPaste}" Stretch="None" />
+            </Button>
+
             <Button
                 x:Name="BtnCopy"
-                Content="📋"
-                Tag="Copy" />
-
+                Width="30"
+                Height="30"
+                Background="Transparent"
+                Tag="Copy">
+                <Image Source="{StaticResource ResourceKey=IconCopy}" Stretch="None" />
+            </Button>
         </StackPanel>
 
         <!--  Image  -->
         <Border
+            Grid.Row="0"
             Grid.Column="1"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
@@ -63,6 +124,17 @@
                     StretchDirection="Both" />
             </ScrollViewer>
         </Border>
+
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="1"
+            Orientation="Horizontal">
+            <TextBlock
+                x:Name="TbPictureInfo"
+                Margin="10,0,0,5"
+                FontSize="12"
+                FontWeight="Medium" />
+        </StackPanel>
 
     </Grid>
 </UserControl>

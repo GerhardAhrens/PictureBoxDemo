@@ -41,7 +41,7 @@ namespace PictureBoxDemo
 
         public string WindowTitel
         {
-            get { return _WindowTitel; }
+            get { return this._WindowTitel; }
             set
             {
                 if (this._WindowTitel != value)
@@ -61,6 +61,21 @@ namespace PictureBoxDemo
             set { _selected = value; OnPropertyChanged(); }
         }
 
+        private string _PictureInfo;
+
+        public string PictureInfo
+        {
+            get { return this._PictureInfo; }
+            set
+            {
+                if (this._PictureInfo != value)
+                {
+                    this._PictureInfo = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             this.Pictures.Add(Base64ToByteArray(DemoBilder.Bild_A));
@@ -70,6 +85,8 @@ namespace PictureBoxDemo
             this.Pictures.Add(Base64ToByteArray(DemoBilder.Bild_E));
 
             this.SelectedPicture = this.Pictures[0];
+
+            this.PictureInfo = "~Test";
         }
 
         private static byte[] Base64ToByteArray(string stringInBase64)

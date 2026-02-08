@@ -47,10 +47,10 @@
             WeakEventManager<Button, RoutedEventArgs>.AddHandler(this.BtnCopy, "Click", this.OnButtonAction);
         }
 
-        // ===========================
-        // ItemsSource
-        // ===========================
 
+        /// <summary>
+        /// ItemsSource
+        /// </summary>
         public ObservableCollection<byte[]> ItemsSource
         {
             get => (ObservableCollection<byte[]>)GetValue(ItemsSourceProperty);
@@ -61,14 +61,11 @@
             DependencyProperty.Register(
                 nameof(ItemsSource),
                 typeof(ObservableCollection<byte[]>),
-                typeof(PictureBox),
-                new PropertyMetadata(null));
+                typeof(PictureBox), new PropertyMetadata(null));
 
-
-        // ===========================
-        // SelectedPicture
-        // ===========================
-
+        /// <summary>
+        /// SelectedPicture
+        /// </summary>
         public byte[] SelectedPicture
         {
             get => (byte[])GetValue(SelectedPictureProperty);
@@ -80,10 +77,23 @@
                 nameof(SelectedPicture),
                 typeof(byte[]),
                 typeof(PictureBox),
-                new FrameworkPropertyMetadata(
-                    null,
-                    FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+                new FrameworkPropertyMetadata(null,FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
+        /// <summary>
+        /// PictureInfo
+        /// </summary>
+        public string PictureInfo
+        {
+            get => (string)GetValue(PictureInfoProperty);
+            set => SetValue(PictureInfoProperty, value);
+        }
+
+        public static readonly DependencyProperty PictureInfoProperty =
+            DependencyProperty.Register(
+                nameof(PictureInfo),
+                typeof(string),
+                typeof(PictureBox),
+                new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
@@ -100,6 +110,8 @@
             {
                 movePos = 0;
             }
+
+            this.TbPictureInfo.Text = PictureInfo;
         }
 
         private void OnButtonAction(object sender, RoutedEventArgs e)

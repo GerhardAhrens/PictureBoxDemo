@@ -6,3 +6,6 @@
 ![Version](https://img.shields.io/badge/Version-1.0.2025.0-yellow.svg)]
 
 Das Demo zeigt ein UserControl **PictureBox** das eine Liste von Bilder darstellen kann. Zusätzlich gibt es eine Navigationsleiste für Funktionen wie *Auf- und Abblättern, Löschen, Hinzufügen usw.*
+
+<img src="ControlMain.png" style="width:650px;"/>
+
