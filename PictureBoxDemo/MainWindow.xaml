@@ -23,9 +23,10 @@
 
         <local:PictureBox
             x:Name="pictureBox"
-            Width="290"
-            Height="290"
+            Width="250"
+            Height="250"
             Margin="0,20,0,0"
+            PictureStretch="Uniform"
             ItemsSource="{Binding Path=Pictures}"
             PictureInfo="{Binding Path=PictureInfo}"
             SelectedPicture="{Binding Path=SelectedPicture, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />

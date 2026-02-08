@@ -7,6 +7,7 @@
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Data;
+    using System.Windows.Media;
     using System.Windows.Media.Imaging;
 
     using Windows.ApplicationModel.Email.DataProvider;
@@ -95,6 +96,22 @@
                 typeof(PictureBox),
                 new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
+        /// <summary>
+        /// Stretch
+        /// </summary>
+        public Stretch PictureStretch
+        {
+            get => (Stretch)GetValue(PictureStretchProperty);
+            set => SetValue(PictureStretchProperty, value);
+        }
+
+        public static readonly DependencyProperty PictureStretchProperty =
+            DependencyProperty.Register(
+                nameof(PictureStretch),
+                typeof(Stretch),
+                typeof(PictureBox),
+                new FrameworkPropertyMetadata(Stretch.Uniform, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             if (ItemsSource == null || SelectedPicture == null)
@@ -112,6 +129,7 @@
             }
 
             this.TbPictureInfo.Text = PictureInfo;
+            this.pictureBox.Stretch = this.PictureStretch;
         }
 
         private void OnButtonAction(object sender, RoutedEventArgs e)
