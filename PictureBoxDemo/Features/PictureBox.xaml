@@ -109,11 +109,11 @@
         <Grid Grid.Row="0" Grid.Column="1">
             <Border BorderBrush="Black" BorderThickness="1">
                 <Image
-                x:Name="pictureBox"
-                RenderOptions.BitmapScalingMode="HighQuality"
-                Source="{Binding SelectedPicture, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource ByteArrayToImageConverter}}"
-                Stretch="Uniform"
-                StretchDirection="DownOnly" />
+                    x:Name="pictureBox"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+                    Source="{Binding SelectedPicture, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource ByteArrayToImageConverter}}"
+                    Stretch="Uniform"
+                    StretchDirection="DownOnly" />
             </Border>
         </Grid>
 
@@ -121,6 +121,12 @@
             Grid.Row="1"
             Grid.Column="1"
             Orientation="Horizontal">
+            <TextBlock FontSize="12" FontWeight="Medium">
+                <Run Text="Anzahl" />
+                <Run Text=":" />
+                <Run x:Name="RunAnzahl" />
+            </TextBlock>
+
             <TextBlock
                 x:Name="TbPictureInfo"
                 Margin="10,0,0,5"

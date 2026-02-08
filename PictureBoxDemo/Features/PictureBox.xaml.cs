@@ -114,7 +114,7 @@
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            if (ItemsSource == null || SelectedPicture == null)
+            if (this.ItemsSource == null || this.SelectedPicture == null)
             {
                 string base64Photo = Photo.EmptyPhoto;
                 this.pictureBox.Source = Base64ToImageSource(base64Photo);
@@ -130,6 +130,7 @@
 
             this.TbPictureInfo.Text = PictureInfo;
             this.pictureBox.Stretch = this.PictureStretch;
+            this.RunAnzahl.Text = this.ItemsSource.Count.ToString(CultureInfo.CurrentCulture);
         }
 
         private void OnButtonAction(object sender, RoutedEventArgs e)
@@ -208,6 +209,8 @@
                 this.BtnDelete.IsEnabled = false;
                 this.BtnCopy.IsEnabled = false;
             }
+
+            this.RunAnzahl.Text = this.ItemsSource.Count.ToString(CultureInfo.CurrentCulture);
         }
 
         private void Paste()
