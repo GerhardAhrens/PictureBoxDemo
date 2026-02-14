@@ -1,11 +1,11 @@
 # PictureBox
 
-![NET](https://img.shields.io/badge/NET-8.0-green.svg)
+![NET](https://img.shields.io/badge/NET-10-green.svg)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
-![VS2022](https://img.shields.io/badge/Visual%20Studio-2022-white.svg)
-![Version](https://img.shields.io/badge/Version-1.0.2025.0-yellow.svg)]
+![VS2022](https://img.shields.io/badge/Visual%20Studio-2026-white.svg)
+![Version](https://img.shields.io/badge/Version-1.0.2026.0-yellow.svg)]
 
-Das Demo zeigt ein UserControl **PictureBox** das eine Liste von Bilder darstellen kann. Zusätzlich gibt es eine Navigationsleiste für Funktionen wie *Auf- und Abblättern, Löschen, Hinzufügen usw.*
+Das Demo zeigt ein UserControl **PictureBox** das eine Liste von Bilder darstellen kann. ZusÃ¤tzlich gibt es eine Navigationsleiste fÃ¼r Funktionen wie *Auf- und AbblÃ¤ttern, LÃ¶schen, HinzufÃ¼gen usw.*
 
 <img src="ControlMain.png" style="width:650px;"/>
 
