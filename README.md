@@ -9,3 +9,19 @@ Das Demo zeigt ein UserControl **PictureBox** das eine Liste von Bilder darstell
 
 <img src="ControlMain.png" style="width:650px;"/>
 
+Desweiteren zeigt das kleine Projekt wie ein Base64 String zur Laufzeit in der PictureBox dargestellt werden kann.
+
+Die Umwandlung eines Base64 kodierter String l‰ﬂt sich denkbar einfach in ein BitmapSource umwandel.und direkt im **WPF Image-Control** dargestellt werden.
+```csharp
+private static BitmapImage Base64ToImageSource(string base64String)
+{
+    BitmapImage bi = new BitmapImage();
+
+    bi.BeginInit();
+    bi.StreamSource = new MemoryStream(System.Convert.FromBase64String(base64String));
+    bi.EndInit();
+
+    return bi;
+}
+```
+
