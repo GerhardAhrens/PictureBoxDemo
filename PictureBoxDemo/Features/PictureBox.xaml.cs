@@ -126,11 +126,10 @@
             else
             {
                 movePos = 0;
+                this.TbPictureInfo.Text = PictureInfo;
+                this.pictureBox.Stretch = this.PictureStretch;
+                this.RunAnzahl.Text = this.ItemsSource.Count.ToString(CultureInfo.CurrentCulture);
             }
-
-            this.TbPictureInfo.Text = PictureInfo;
-            this.pictureBox.Stretch = this.PictureStretch;
-            this.RunAnzahl.Text = this.ItemsSource.Count.ToString(CultureInfo.CurrentCulture);
         }
 
         private void OnButtonAction(object sender, RoutedEventArgs e)
